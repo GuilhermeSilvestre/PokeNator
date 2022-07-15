@@ -32,7 +32,7 @@ class _PerguntasState extends State<Perguntas> {
     'O pokémon é do tipo fogo?',
     'O pokémon é do tipo água?',
     'O pokémon é do tipo grama?',
-    'O pokémon é do tipo normal?',
+    'O pokémon é do tipo normal? (Lembrando que aqui também estão os dragões, fadas e terra)',
     'O pokémon é do tipo elétrico?',
     'O pokémon é do tipo fantasma?',
     'O pokémon é do tipo venenoso?',
@@ -78,16 +78,28 @@ class _PerguntasState extends State<Perguntas> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 50,
-                      width: 360,
-                      child: Text(
-                        pergunta,
-                        textAlign: TextAlign.center,
-                        style: estiloPoke,
+                    if (ponteiro != 4)
+                      Container(
+                        height: 50,
+                        width: 360,
+                        child: Text(
+                          pergunta,
+                          textAlign: TextAlign.center,
+                          style: estiloPoke,
+                        ),
+                        //color: Color(0xfffce205).withOpacity(0.3),
                       ),
-                      //color: Color(0xfffce205).withOpacity(0.3),
-                    ),
+                    if (ponteiro == 4)
+                      Container(
+                        height: 100,
+                        width: 360,
+                        child: Text(
+                          pergunta,
+                          textAlign: TextAlign.center,
+                          style: estiloPoke,
+                        ),
+                        //color: Color(0xfffce205).withOpacity(0.3),
+                      ),
                     const SizedBox(
                       height: 50,
                     ),
