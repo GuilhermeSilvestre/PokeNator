@@ -38,16 +38,14 @@ class _Perguntas2State extends State<Perguntas2> {
 //========================================================
 //=================TIPO FOGO==============================
   List<String> listaPerguntasFogo = [
-    'O pokémon anda sobre 4 patas?',
-    'É uma evolução?',
-    'É uma raposa?',
-    'É um cavalo?',
-    'É um cachorro?',
-    'É voador?',
-    'É uma ave?',
-    'É um dragão? (OBS: Dragões possuem asas)',
     'É um pokémon básico?',
-    'Possui alguma evolução?(Acima dele)',
+    'Ele anda sobre 4 patas?',
+    'Possui alguma evolução acima dele?',
+    'É um dragão?',
+    'Ele pode voar?',
+    'Ele, ou a evolução dele, possui várias caldas?',
+    'Por acaso ele sabe dar coice?',
+    'Ele se parece com um gato ou raposa?',
     '',
   ];
 
@@ -181,8 +179,25 @@ class _Perguntas2State extends State<Perguntas2> {
 //==========================================================
 //=================TIPO NORMAL==============================
   List<String> listaPerguntasNormal = [
-    'Pergunta 1?',
-    'Pergunta 2?',
+    'É um pokémon básico?',
+    'Existem evoluções acima dele?',
+    'Ele pode voar?',
+    'Ele é um dragão?',
+    'Parece um avestruz?',
+    'Ele tem bastante a cor rosa ou roxa?',
+    'Por acaso ele é formado apenas por ângulos retos?',
+    'Trabalha no centro pokémon?',
+    'Lembra uma gelatina?',
+    'Está acima do peso?',
+    'Ele mia?',
+    'Usa um crânio como máscara?',
+    'Tem um ou mais chifres na cabeça?',
+    'Gosta de mímica?',
+    'É amarelinho?',
+    'Vive enterrado na terra?',
+    'Ele usa ou já usou na forma anterior um microfone para cantar?',
+    'É um hamster bravinho?',
+    'O Ash já teve alguma evolução ou pré-evolução desse pokémon?',
     '',
   ];
 
@@ -634,28 +649,16 @@ class _Perguntas2State extends State<Perguntas2> {
       if (resposta == 'sim' && aux == 1) {
         pergunta = listaPerguntasFogo[aux];
 
-        pokemon_fogo.removeWhere((item) => (item == 'Charmander'));
-        pokemon_fogo.removeWhere((item) => (item == 'Charmeleon'));
-        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
-        pokemon_fogo.removeWhere((item) => (item == 'Magmar'));
-        //print(pokemon_fogo[0]);
+        pokemon_fogo.removeWhere((item) => (item != 'Charmander' &&
+            item != 'Vulpix' &&
+            item != 'Growlithe' &&
+            item != 'Ponyta' &&
+            item != 'Magmar' &&
+            item != 'Moltres'));
+
         verificarPokemon();
       }
       if (resposta == 'nao' && aux == 1) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Vulpix'));
-        pokemon_fogo.removeWhere((item) => (item == 'Ninetales'));
-        pokemon_fogo.removeWhere((item) => (item == 'Growlithe'));
-        pokemon_fogo.removeWhere((item) => (item == 'Arcanine'));
-        pokemon_fogo.removeWhere((item) => (item == 'Ponyta'));
-        pokemon_fogo.removeWhere((item) => (item == 'Rapidash'));
-        pokemon_fogo.removeWhere((item) => (item == 'Flareon'));
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-      //===========RESPOSTA PARA A SEGUNDA PERGUNTA=========
-      if (resposta == 'sim' && aux == 2) {
         pergunta = listaPerguntasFogo[aux];
 
         pokemon_fogo.removeWhere((item) => (item == 'Charmander'));
@@ -664,15 +667,30 @@ class _Perguntas2State extends State<Perguntas2> {
         pokemon_fogo.removeWhere((item) => (item == 'Ponyta'));
         pokemon_fogo.removeWhere((item) => (item == 'Magmar'));
         pokemon_fogo.removeWhere((item) => (item == 'Moltres'));
+
+        verificarPokemon();
+      }
+      //===========RESPOSTA PARA A SEGUNDA PERGUNTA=========
+      if (resposta == 'sim' && aux == 2) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item != 'Vulpix' &&
+            item != 'Ninetales' &&
+            item != 'Growlithe' &&
+            item != 'Arcanine' &&
+            item != 'Ponyta' &&
+            item != 'Rapidash' &&
+            item != 'Flareon'));
         verificarPokemon();
       }
       if (resposta == 'nao' && aux == 2) {
         pergunta = listaPerguntasFogo[aux];
 
-        pokemon_fogo.removeWhere((item) => (item == 'Charmeleon'));
-        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
+        pokemon_fogo.removeWhere((item) => (item == 'Vulpix'));
         pokemon_fogo.removeWhere((item) => (item == 'Ninetales'));
+        pokemon_fogo.removeWhere((item) => (item == 'Growlithe'));
         pokemon_fogo.removeWhere((item) => (item == 'Arcanine'));
+        pokemon_fogo.removeWhere((item) => (item == 'Ponyta'));
         pokemon_fogo.removeWhere((item) => (item == 'Rapidash'));
         pokemon_fogo.removeWhere((item) => (item == 'Flareon'));
         //print(pokemon_fogo[0]);
@@ -683,150 +701,15 @@ class _Perguntas2State extends State<Perguntas2> {
       if (resposta == 'sim' && aux == 3) {
         pergunta = listaPerguntasFogo[aux];
 
-        pokemon_fogo
-            .removeWhere((item) => (item != 'Vulpix' && item != 'Ninetales'));
+        pokemon_fogo.removeWhere((item) => (item != 'Charmander' &&
+            item != 'Charmeleon' &&
+            item != 'Vulpix' &&
+            item != 'Growlithe' &&
+            item != 'Ponyta'));
 
         verificarPokemon();
       }
       if (resposta == 'nao' && aux == 3) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Vulpix'));
-        pokemon_fogo.removeWhere((item) => (item == 'Ninetales'));
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A QUARTA PERGUNTA=========
-      if (resposta == 'sim' && aux == 4) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo
-            .removeWhere((item) => (item != 'Ponyta' && item != 'Rapidash'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 4) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Ponyta'));
-        pokemon_fogo.removeWhere((item) => (item == 'Rapidash'));
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A QUINTA PERGUNTA=========
-      if (resposta == 'sim' && aux == 5) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo
-            .removeWhere((item) => (item != 'Growlithe' && item != 'Arcanine'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 5) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Growlithe'));
-        pokemon_fogo.removeWhere((item) => (item == 'Arcanine'));
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A SEXTA PERGUNTA=========
-      if (resposta == 'sim' && aux == 6) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo
-            .removeWhere((item) => (item != 'Charizard' && item != 'Moltres'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 6) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
-        pokemon_fogo.removeWhere((item) => (item == 'Moltres'));
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A SETIMA PERGUNTA=========
-      if (resposta == 'sim' && aux == 7) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item != 'Moltres'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 7) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Moltres'));
-
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A OITAVA PERGUNTA=========
-      if (resposta == 'sim' && aux == 8) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item != 'Charizard'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 8) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
-
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A NONA PERGUNTA=========
-      if (resposta == 'sim' && aux == 9) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item != 'Charmander' &&
-            item != 'Moltres' &&
-            item != 'Magmar' &&
-            item != 'Ponyta' &&
-            item != 'Growlithe' &&
-            item != 'Vulpix'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 9) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Charmander' &&
-            item == 'Moltres' &&
-            item == 'Magmar' &&
-            item == 'Ponyta' &&
-            item == 'Growlithe' &&
-            item == 'Vulpix'));
-
-        //print(pokemon_fogo[0]);
-        verificarPokemon();
-      }
-
-      //===========RESPOSTA PARA A DECIMA PERGUNTA=========
-      if (resposta == 'sim' && aux == 10) {
-        pergunta = listaPerguntasFogo[aux];
-
-        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
-        pokemon_fogo.removeWhere((item) => (item == 'Ninetails'));
-        pokemon_fogo.removeWhere((item) => (item == 'Arcanine'));
-        pokemon_fogo.removeWhere((item) => (item == 'Rapidash'));
-        pokemon_fogo.removeWhere((item) => (item == 'Magmar'));
-        pokemon_fogo.removeWhere((item) => (item == 'Flareon'));
-        pokemon_fogo.removeWhere((item) => (item == 'Moltres'));
-
-        verificarPokemon();
-      }
-      if (resposta == 'nao' && aux == 10) {
         pergunta = listaPerguntasFogo[aux];
 
         pokemon_fogo.removeWhere((item) => (item == 'Charmander'));
@@ -835,7 +718,95 @@ class _Perguntas2State extends State<Perguntas2> {
         pokemon_fogo.removeWhere((item) => (item == 'Growlithe'));
         pokemon_fogo.removeWhere((item) => (item == 'Ponyta'));
 
-        //print(pokemon_fogo[0]);
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A QUARTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 4) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item != 'Charizard'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 4) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A QUINTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 5) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo
+            .removeWhere((item) => (item != 'Moltres' && item != 'Charizard'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 5) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item == 'Moltres'));
+        pokemon_fogo.removeWhere((item) => (item == 'Charizard'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A SEXTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 6) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo
+            .removeWhere((item) => (item != 'Vulpix' && item != 'Ninetales'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 6) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item == 'Vulpix'));
+        pokemon_fogo.removeWhere((item) => (item == 'Ninetales'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A SETIMA PERGUNTA=========
+      if (resposta == 'sim' && aux == 7) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo
+            .removeWhere((item) => (item != 'Ponyta' && item != 'Rapidash'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 7) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item == 'Ponyta'));
+        pokemon_fogo.removeWhere((item) => (item == 'Rapidash'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A OITAVA PERGUNTA=========
+      if (resposta == 'sim' && aux == 8) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) =>
+            (item != 'Vulpix' && item != 'Ninetales' && item != 'Flareon'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 8) {
+        pergunta = listaPerguntasFogo[aux];
+
+        pokemon_fogo.removeWhere((item) => (item == 'Vulpix'));
+        pokemon_fogo.removeWhere((item) => (item == 'Ninetales'));
+        pokemon_fogo.removeWhere((item) => (item == 'Flareon'));
+
         verificarPokemon();
       }
     });
@@ -1641,20 +1612,58 @@ class _Perguntas2State extends State<Perguntas2> {
       if (resposta == 'sim' && aux == 1) {
         pergunta = listaPerguntasNormal[aux];
 
-        pokemon_normal.removeWhere((item) => (item != 'Paras' &&
-            item != 'Parasect' &&
-            item != 'Venonat' &&
-            item != 'Scyther' &&
-            item != 'Pinsir'));
+        pokemon_normal.removeWhere((item) => (item != 'Pidgey' &&
+            item != 'Rattata' &&
+            item != 'Spearow' &&
+            item != 'Clefairy' &&
+            item != 'Jigglypuff' &&
+            item != 'Meowth' &&
+            item != 'Farfetchd' &&
+            item != 'Doduo' &&
+            item != 'Licktung' &&
+            item != 'Chansey' &&
+            item != 'Kangaskhan' &&
+            item != 'Tauros' &&
+            item != 'Ditto' &&
+            item != 'Eevee' &&
+            item != 'Porygon' &&
+            item != 'Snorlax' &&
+            item != 'Sandshrew' &&
+            item != 'Diglett' &&
+            item != 'Cubone' &&
+            item != 'Rhyhorn' &&
+            item != 'Dratini' &&
+            item != 'Mr. Mime' &&
+            item != 'Aerodactyl'));
 
         verificarPokemon();
       }
       if (resposta == 'nao' && aux == 1) {
         pergunta = listaPerguntasNormal[aux];
 
-        pokemon_normal.removeWhere((item) => (item == 'Paras'));
-        pokemon_normal.removeWhere((item) => (item == 'Parasect'));
-        pokemon_normal.removeWhere((item) => (item == 'Venonat'));
+        pokemon_normal.removeWhere((item) => (item == 'Aerodactyl'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgey'));
+        pokemon_normal.removeWhere((item) => (item == 'Rattata'));
+        pokemon_normal.removeWhere((item) => (item == 'Spearow'));
+        pokemon_normal.removeWhere((item) => (item == 'Clefairy'));
+        pokemon_normal.removeWhere((item) => (item == 'Jigglypuff'));
+        pokemon_normal.removeWhere((item) => (item == 'Meowth'));
+        pokemon_normal.removeWhere((item) => (item == 'Farfetchd'));
+        pokemon_normal.removeWhere((item) => (item == 'Doduo'));
+        pokemon_normal.removeWhere((item) => (item == 'Licktung'));
+        pokemon_normal.removeWhere((item) => (item == 'Chansey'));
+        pokemon_normal.removeWhere((item) => (item == 'Kangaskhan'));
+        pokemon_normal.removeWhere((item) => (item == 'Tauros'));
+        pokemon_normal.removeWhere((item) => (item == 'Ditto'));
+        pokemon_normal.removeWhere((item) => (item == 'Eevee'));
+        pokemon_normal.removeWhere((item) => (item == 'Porygon'));
+        pokemon_normal.removeWhere((item) => (item == 'Snorlax'));
+        pokemon_normal.removeWhere((item) => (item == 'Diglett'));
+        pokemon_normal.removeWhere((item) => (item == 'Cubone'));
+        pokemon_normal.removeWhere((item) => (item == 'Rhyhorn'));
+        pokemon_normal.removeWhere((item) => (item == 'Dratini'));
+        pokemon_normal.removeWhere((item) => (item == 'Sandshrew'));
+        pokemon_normal.removeWhere((item) => (item == 'Mr. Mime'));
 
         verificarPokemon();
       }
@@ -1662,14 +1671,374 @@ class _Perguntas2State extends State<Perguntas2> {
       if (resposta == 'sim' && aux == 2) {
         pergunta = listaPerguntasNormal[aux];
 
-        pokemon_normal.removeWhere((item) => (item != 'Paras'));
+        pokemon_normal.removeWhere((item) => (item != 'Pidgey' &&
+            item != 'Pidgeotto' &&
+            item != 'Dragonair' &&
+            item != 'Rattata' &&
+            item != 'Spearow' &&
+            item != 'Clefairy' &&
+            item != 'Jigglypuff' &&
+            item != 'Meowth' &&
+            item != 'Doduo' &&
+            item != 'Eevee' &&
+            item != 'Sandshrew' &&
+            item != 'Diglett' &&
+            item != 'Cubone' &&
+            item != 'Rhyhorn' &&
+            item != 'Dratini'));
 
         verificarPokemon();
       }
       if (resposta == 'nao' && aux == 2) {
         pergunta = listaPerguntasNormal[aux];
 
-        pokemon_normal.removeWhere((item) => (item == 'Paras'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgey'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgeotto'));
+        pokemon_normal.removeWhere((item) => (item == 'Dragonair'));
+        pokemon_normal.removeWhere((item) => (item == 'Rattata'));
+        pokemon_normal.removeWhere((item) => (item == 'Spearow'));
+        pokemon_normal.removeWhere((item) => (item == 'Clefairy'));
+        pokemon_normal.removeWhere((item) => (item == 'Jigglypuff'));
+        pokemon_normal.removeWhere((item) => (item == 'Meowth'));
+        pokemon_normal.removeWhere((item) => (item == 'Doduo'));
+        pokemon_normal.removeWhere((item) => (item == 'Eevee'));
+        pokemon_normal.removeWhere((item) => (item == 'Sandshrew'));
+        pokemon_normal.removeWhere((item) => (item == 'Diglett'));
+        pokemon_normal.removeWhere((item) => (item == 'Cubone'));
+        pokemon_normal.removeWhere((item) => (item == 'Rhyhorn'));
+        pokemon_normal.removeWhere((item) => (item == 'Dratini'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A TERCEIRA PERGUNTA=========
+      if (resposta == 'sim' && aux == 3) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Pidgey' &&
+            item != 'Pidgeotto' &&
+            item != 'Pidgeot' &&
+            item != 'Dratini' &&
+            item != 'Dragonair' &&
+            item != 'Dragonite' &&
+            item != 'Spearow' &&
+            item != 'Fearow' &&
+            item != 'Clefairy' &&
+            item != 'Clefable' &&
+            item != 'Doduo' &&
+            item != 'Dodrio' &&
+            item != 'Porygon' &&
+            item != 'Aerodactyl' &&
+            item != 'Farfetchd'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 3) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Farfetchd'));
+        pokemon_normal.removeWhere((item) => (item == 'Aerodactyl'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgey'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgeotto'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgeot'));
+        pokemon_normal.removeWhere((item) => (item == 'Dratini'));
+        pokemon_normal.removeWhere((item) => (item == 'Dragonair'));
+        pokemon_normal.removeWhere((item) => (item == 'Dragonair'));
+        pokemon_normal.removeWhere((item) => (item == 'Spearow'));
+        pokemon_normal.removeWhere((item) => (item == 'Fearow'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A QUARTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 4) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Dratini' &&
+            item != 'Dragonair' &&
+            item != 'Dragonite' &&
+            item != 'Aerodactyl'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 4) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Dratini'));
+        pokemon_normal.removeWhere((item) => (item == 'Dragonair'));
+        pokemon_normal.removeWhere((item) => (item == 'Dragonite'));
+        pokemon_normal.removeWhere((item) => (item == 'Aerodactyl'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A QUINTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 5) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal
+            .removeWhere((item) => (item != 'Doduo' && item != 'Dodrio'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 5) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Doduo'));
+        pokemon_normal.removeWhere((item) => (item == 'Dodrio'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A SEXTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 6) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Rattata' &&
+            item != 'Clefairy' &&
+            item != 'Clefable' &&
+            item != 'Jigglypuff' &&
+            item != 'Wigglytuff' &&
+            item != 'Licktung' &&
+            item != 'Chansey' &&
+            item != 'Ditto' &&
+            item != 'Mr. Mime' &&
+            item != 'Porygon'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 6) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Rattata'));
+        pokemon_normal.removeWhere((item) => (item == 'Clefairy'));
+        pokemon_normal.removeWhere((item) => (item == 'Clefable'));
+        pokemon_normal.removeWhere((item) => (item == 'Jigglypuff'));
+        pokemon_normal.removeWhere((item) => (item == 'Wigglytuff'));
+        pokemon_normal.removeWhere((item) => (item == 'Licktung'));
+        pokemon_normal.removeWhere((item) => (item == 'Chansey'));
+        pokemon_normal.removeWhere((item) => (item == 'Ditto'));
+        pokemon_normal.removeWhere((item) => (item == 'Mr. Mime'));
+        pokemon_normal.removeWhere((item) => (item == 'Porygon'));
+
+        verificarPokemon();
+      }
+      //===========RESPOSTA PARA A SETIMA PERGUNTA=========
+      if (resposta == 'sim' && aux == 7) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Porygon'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 7) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Porygon'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A OITAVA PERGUNTA=========
+      if (resposta == 'sim' && aux == 8) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Chansey'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 8) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Chansey'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A NONA PERGUNTA=========
+      if (resposta == 'sim' && aux == 9) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Ditto'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 9) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Ditto'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA PERGUNTA=========
+      if (resposta == 'sim' && aux == 10) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Snorlax'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 10) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Snorlax'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA PRIMEIRA PERGUNTA=========
+      if (resposta == 'sim' && aux == 11) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal
+            .removeWhere((item) => (item != 'Meowth' && item != 'Persian'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 11) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Meowth'));
+        pokemon_normal.removeWhere((item) => (item == 'Persian'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA SEGUNDA PERGUNTA=========
+      if (resposta == 'sim' && aux == 12) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal
+            .removeWhere((item) => (item != 'Cubone' && item != 'Marowak'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 12) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Cubone'));
+        pokemon_normal.removeWhere((item) => (item == 'Marowak'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA TERCEIRA PERGUNTA=========
+      if (resposta == 'sim' && aux == 13) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) =>
+            (item != 'Rhyhorn' && item != 'Rhydon' && item != 'Tauros'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 13) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Rhyhorn'));
+        pokemon_normal.removeWhere((item) => (item == 'Rhydon'));
+        pokemon_normal.removeWhere((item) => (item == 'Tauros'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA QUARTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 14) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Mr. Mime'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 14) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Mr. Mime'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA QUINTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 15) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere(
+            (item) => (item != 'Sandshrew' && item != 'Sandslash'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 15) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Sandshrew'));
+        pokemon_normal.removeWhere((item) => (item == 'Sandslash'));
+
+        verificarPokemon();
+      }
+
+      //===========RESPOSTA PARA A DECIMA SEXTA PERGUNTA=========
+      if (resposta == 'sim' && aux == 16) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal
+            .removeWhere((item) => (item != 'Diglett' && item != 'Dugtrio'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 16) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Diglett'));
+        pokemon_normal.removeWhere((item) => (item == 'Dugtrio'));
+
+        verificarPokemon();
+      }
+      //===========RESPOSTA PARA A DECIMA SETIMA PERGUNTA=========
+      if (resposta == 'sim' && aux == 17) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere(
+            (item) => (item != 'Jigglypuff' && item != 'Wigglytuff'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 17) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Jigglypuff'));
+        pokemon_normal.removeWhere((item) => (item == 'Wigglytuff'));
+
+        verificarPokemon();
+      }
+      //===========RESPOSTA PARA A DECIMA OITAVA PERGUNTA=========
+      if (resposta == 'sim' && aux == 18) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item != 'Rattata'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 18) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Rattata'));
+
+        verificarPokemon();
+      }
+      //===========RESPOSTA PARA A DECIMA NONA PERGUNTA=========
+      if (resposta == 'sim' && aux == 19) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal
+            .removeWhere((item) => (item != 'Pidgey' && item != 'Pidgeot'));
+
+        verificarPokemon();
+      }
+      if (resposta == 'nao' && aux == 19) {
+        pergunta = listaPerguntasNormal[aux];
+
+        pokemon_normal.removeWhere((item) => (item == 'Pidgey'));
+        pokemon_normal.removeWhere((item) => (item == 'Pidgeot'));
 
         verificarPokemon();
       }
