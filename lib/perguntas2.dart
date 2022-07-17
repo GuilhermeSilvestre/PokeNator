@@ -188,7 +188,7 @@ class _Perguntas2State extends State<Perguntas2> {
     'Por acaso ele é formado apenas por ângulos retos?',
     'Trabalha no centro pokémon?',
     'Lembra uma gelatina?',
-    'Está acima do peso?',
+    'Pesa mais de 300 kilos?',
     'Ele mia?',
     'Usa um crânio como máscara?',
     'Tem um ou mais chifres na cabeça?',
